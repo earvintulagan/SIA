@@ -4,6 +4,9 @@
     Layout = null;
 }
 
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -11,7 +14,7 @@
 
 <!-- Font Icon -->
 <link rel="stylesheet" href="~/Content/material-design-iconic-font.min.css">
-<script src="~/Scripts/custom.js"></script>
+<script src="~/Scripts/Login.js"></script>
 <script src="~/Scripts/jquery.validate.js"></script>
 
 
@@ -24,7 +27,7 @@
     <div class="main1">
 
         <div class="container1">
-            <form method="POST" class="appointment-form" id="loginForm">
+            <form method="POST" action="/Home/Loginchecker" class="appointment-form" id="loginForm">
                 <center><h2>Quezon City University</h2></center>
                 <h3>Login</h3>
 
@@ -43,3 +46,5 @@
     </div>
 
 </body>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")

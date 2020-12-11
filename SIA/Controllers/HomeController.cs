@@ -25,15 +25,24 @@ namespace SIA.Controllers
             return View();
         }
 
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult Homepage()
+        {
+            return View();
+        }
+
+        
+
         public ActionResult Register()
         {
             return View();
         }
 
-        public ActionResult Login()
-        {
-            return View();
-        }
+       
 
         public ActionResult About()
         {
@@ -78,12 +87,33 @@ namespace SIA.Controllers
             return "true";
         }
 
-        
+        /*Checker for Login*/
+        public ActionResult Loginchecker(string username, string password)
+        {
+            if (ModelState.IsValid)
+            {
 
 
-        
+                var f_password = encdec.Encrypt(username,password);
+                var data = db.Accounts.Where(s => s.Username.Equals(username) && s.Password.Equals(f_password)).ToList();
+                if (data.Count() > 0)
+                {
+                    //add session
+                    
+                    return RedirectToAction("Homepage");
+                }
+                else
+                {
+                    
+                    return RedirectToAction("Login");
+                }
+            }
+            return View();
+        }
 
-        
+
+
+
 
     }
 }
